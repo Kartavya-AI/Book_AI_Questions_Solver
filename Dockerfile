@@ -1,21 +1,20 @@
-# Use Python 3.12 slim (compatible with most packages)
-FROM python:3.12-slim
+# Use Python 3.11 slim
+FROM python:3.11-slim
 
-# Set working directory
 WORKDIR /app
 
-# Install system dependencies (git, curl, build essentials)
-RUN apt-get update && apt-get install -y git curl build-essential && rm -rf /var/lib/apt/lists/*
+# System dependencies
+RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
+# Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy app files
 COPY . .
 
-# Expose FastAPI port (Render free tier expects 10000)
-EXPOSE 10000
+# Expose port for FastAPI
+EXPOSE 8080
 
-# Run FastAPI with Uvicorn
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "10000"]
+# Start FastAPI app
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8080"]
