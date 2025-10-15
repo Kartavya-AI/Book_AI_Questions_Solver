@@ -14,8 +14,10 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose port for FastAPI
-EXPOSE 8080
+ENV PORT=8080
+EXPOSE $PORT
 
 # Start FastAPI app
-CMD ["python", "-m", "uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "-m", "uvicorn", "api:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+
 
