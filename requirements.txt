@@ -3,6 +3,8 @@ python-dotenv
 langchain
 langchain-community
 langchain-google-genai
+langchain_text_splitters
 faiss-cpu
 fastapi 
 uvicorn
+
