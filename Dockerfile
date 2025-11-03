@@ -13,9 +13,8 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 # Copy app files
 COPY . .
 
-# Expose port for FastAPI
-ENV PORT=8080
-EXPOSE $PORT
+EXPOSE 8080
 
 
 CMD exec uvicorn api:app --host 0.0.0.0 --port $PORT
+
