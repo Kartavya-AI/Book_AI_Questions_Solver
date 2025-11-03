@@ -8,7 +8,7 @@ from fastapi import FastAPI, UploadFile, Form, Query
 from fastapi.responses import JSONResponse, HTMLResponse
 from dotenv import load_dotenv
 
-from langchain.text_splitters import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_community.vectorstores import FAISS
 
@@ -237,4 +237,5 @@ async def chat_page(fingerprint: str = Query(...), question: str = Query(...)):
         </body>
     </html>
     """
+
 
