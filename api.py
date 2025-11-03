@@ -13,7 +13,7 @@ from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_community.vectorstores import FAISS
 
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
-from langchain.schema import Document
+from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableMap
 
@@ -237,5 +237,6 @@ async def chat_page(fingerprint: str = Query(...), question: str = Query(...)):
         </body>
     </html>
     """
+
 
 
