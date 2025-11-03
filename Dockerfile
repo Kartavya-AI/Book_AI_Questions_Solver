@@ -17,7 +17,5 @@ COPY . .
 ENV PORT=8080
 EXPOSE $PORT
 
-# Start FastAPI app
-CMD ["python", "-m", "uvicorn", "api:app", "--host", "0.0.0.0", "--port", "${PORT}"]
 
-
+CMD exec uvicorn api:app --host 0.0.0.0 --port $PORT
