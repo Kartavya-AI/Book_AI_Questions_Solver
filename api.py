@@ -29,7 +29,7 @@ app = FastAPI(title="Book Bot API", version="1.0")
 
 # ----------- MODELS -----------
 EMBED_MODEL = "models/text-embedding-004"
-CHAT_MODEL = "gemini-1.5-flash"
+CHAT_MODEL = "gemini-2.5-flash"
 
 embeddings = GoogleGenerativeAIEmbeddings(model=EMBED_MODEL, google_api_key=API_KEY)
 llm = ChatGoogleGenerativeAI(model=CHAT_MODEL, google_api_key=API_KEY, temperature=0.2)
@@ -237,6 +237,7 @@ async def chat_page(fingerprint: str = Query(...), question: str = Query(...)):
         </body>
     </html>
     """
+
 
 
 
